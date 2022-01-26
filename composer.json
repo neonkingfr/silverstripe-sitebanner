@@ -22,8 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NZTA\\SiteBanner\\Extensions\\": "src/extensions",
-            "NZTA\\SiteBanner\\Models\\": "src/models"
+            "NZTA\\SiteBanner\\": "src"
         }
     },
     "suggest": {
