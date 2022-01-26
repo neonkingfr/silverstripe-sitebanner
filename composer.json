@@ -9,16 +9,16 @@
         "issues": "https://github.com/silverstripe/silverstripe-sitebanner/issues"
     },
     "require": {
-        "silverstripe/cms": "^4"
+        "php": ">=7.4",
+        "silverstripe/framework": "^4.6",
+        "silverstripe/siteconfig": "^4.10"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7"
-    },
-    "extra": {
-        "installer-name": "sitebanner",
-        "expose": [
-            "client"
-        ]
+        "sminnee/phpunit": "^5.7",
+        "sminnee/phpunit-mock-objects": "^3.4",
+        "tractorcow/silverstripe-fluent": ">=4.0.0",
+        "slevomat/coding-standard": "~6.0",
+        "php-parallel-lint/php-parallel-lint": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -29,9 +29,21 @@
     "suggest": {
         "symbiote/silverstripe-gridfieldextensions": "Allows sorting of site banners"
     },
-    "scripts": {
-        "lint": "phpcs src/ tests/"
-    },
     "prefer-stable": true,
-    "minimum-stability": "dev"
+    "scripts": {
+        "silverstripe-standards": [
+            "@php-lint",
+            "@phpcs"
+        ],
+        "test": [
+            "@test-phpunit"
+        ],
+        "test-phpunit": "phpunit -d memory_limit=512M -d flush=1",
+        "test-phpunit-with-coverage": [
+            "phpunit --coverage-html coverage/php --coverage-clover coverage/php/clover.xml"
+        ],
+        "php-lint": "parallel-lint src tests",
+        "phpcs": "phpcs src tests --standard=phpcs.xml --extensions=php --encoding=utf-8",
+        "phpcbf": "phpcbf src tests --standard=phpcs.xml --extensions=php --encoding=utf-8"
+    }
 }
