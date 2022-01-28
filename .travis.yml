@@ -17,7 +17,7 @@ matrix:
   include:
     - php: 7.4
       env: DB=MYSQL PHPUNIT_TEST=1
-    - php: 8.0
+    - php: 7.4
       env: DB=PGSQL PHPUNIT_TEST=1
 
 before_script:
