@@ -79,6 +79,7 @@ class SiteBanner extends DataObject
     private static string $default_sort = 'Sort';
 
     private static array $summary_fields = [
+        'Type.UpperCase' => 'Type',
         'Content.Summary' => 'Content',
     ];
 
